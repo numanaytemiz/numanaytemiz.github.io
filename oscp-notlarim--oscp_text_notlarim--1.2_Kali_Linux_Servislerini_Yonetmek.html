@@ -1,0 +1,26 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>1.2 Kali Linux Servislerini Yonetmek</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="oscp-notlarim.html">oscp-notlarim</a></p>
+
+<ol>
+<li><a href="oscp-notlarim--oscp_text_notlarim.html">oscp text notlarim</a></li>
+<ol>
+<li><a href="oscp-notlarim--oscp_text_notlarim--1.Kali_Uzerinde_Isinma_Turlari.html">1.Kali Uzerinde Isinma Turlari</a></li>
+<li><a href="oscp-notlarim--oscp_text_notlarim--1.2_Kali_Linux_Servislerini_Yonetmek.html">1.2 Kali Linux Servislerini Yonetmek</a></li>
+<li><a href="oscp-notlarim--oscp_text_notlarim--1.3_Bash_Environment.html">1.3 Bash Environment</a></li>
+</ol>
+</ol>
+<p><a href="Tmux_Kullanimi.html">Tmux Kullanimi</a></p>
+
+<ol>
+<li><a href="Tmux_Kullanimi--Tmux_Kullanimi_Kisayollari.html">Tmux Kullanimi Kisayollari</a></li>
+</ol></div>
+<div class="page"><h1><b><u>1.2 Kali Linux Servislerini Yonetmek</u></b></h1><strong><span style="color:#0000ff;">1.2 Kali Linux Servislerini Yonetmek</span></strong><strong><br /><br />Kali Linux bilindiği gibi güvenlik profesyonellerinin en sık kullandığı Linux distrolarından birisidir. Kali üzerinde bir çok standart olmayan özellikler içermektedir. Kali ilk kurulduğuda üzerinde ssh,http,mysql servisleri kurulu bir şekilde gelmektedir. Ancak güvenlik nedeni ile bu servisler işletim sistemi ilk boot edildiği anda aktif olmamaktadır. <br /><br /></strong><strong><span style="color:#0000ff;">1.2.1 Default root Password</span></strong><strong><br /><br />Kali Linux ilk kurulduğunda default root password'u toor ile gelmektedir. İşletim sistemini kurduktan sonra yapmamız gereken ilk iş bu default password'u değiştirmek olmalıdır. Bunun için </strong><strong><span style="color:#ff0000;">passwd</span></strong><strong> komutunu kullanmamız yeterlidir.<br /><br /></strong><strong><span style="color:#ff0000;">-passwd </span></strong><strong><br /><br /></strong><img src="images/4-1.png" alt="images/4-1.png" /><br /><br /><span style="color:#0000ff;">1.2.2 SSH Servisi</span><br /><br />SSH servisi bilindiği üzere uzaktaki bilgisayarları/sunucuları güvenli bir şekilde (encytpted), yönetmemizi sağlayan protokoldür ve defaultta TCP 22 portu üzerinden çalışmaktadır. <br /><br />Kali üzerinde ssh servisini <span style="color:#ff0000;">service ssh start</span> komutu ile başlatabiliriz.<br /><br /><span style="color:#ff0000;">- service ssh start</span><br /><br /><img src="images/4-2.png" alt="images/4-2.png" /><br /><br />SSH servisinin çalışıp çalışmadığını doğrulamal için Kali'nin TCP 22 portunu dinlemeye aldığını kontrol etmeliyiz. Bunun için <span style="color:#ff0000;">netstat -antp | grep sshd</span> komutunu çalıştırıp, tcp 22 portunu dinlelemeye aldığını gözlemlememiz yeterlidir.<br /><br /><span style="color:#ff0000;">-</span> <span style="color:#ff0000;">netstat -antp | grep sshd</span><br /><br /><img src="images/4-3.png" alt="images/4-3.png" /><br /><br />Ancak şu an çalıştırdığımız ssh servisi işletim sistemi reboot olduktan sonra tekrar enable olmayacaktır. Eğer işletim sistemi reboot olduktan sonra da bu servisin aktif kalmasını istersek <span style="color:#ff0000;">update-rc.d ssh</span> <span style="color:#ff0000;">enable</span> komutunu<br /> çalıştırmalıyız.<br /> <br /><span style="color:#ff0000;">-</span> <span style="color:#ff0000;">update-rc.d ssh</span> <span style="color:#ff0000;">enable</span><br /><br /><img src="images/4-4.png" alt="images/4-4.png" /><br /><br /><span style="color:#0000ff;">1.2.3 HTTP Servisi</span><br /><br />HTTP servisi penetrasyon testleri esnasında gerek bir site host etmek , gerekse victim üzerine, post exploit adımından sonra dosya indirmemizi sağlayan çok önemli bir servistir. HTTP servisi defaultta TCP 80 portu üzerinden çalışmaktadır. Kali üzerinde http servisini enable etmek için <span style="color:#ff0000;">service apache2 start</span> komutunu çalıştırmamız yeterlidir.<br /><br /><span style="color:#ff0000;">- service apache2 start</span><br /><br /><img src="images/4-5.png" alt="images/4-5.png" /><br /><br />Bu komutu çalıştırdıktan sonra kali tcp 80 portunu listen etmeye başlayacaktır. Hemen verify edelim. Bunun için <span style="color:#ff0000;">netstat -antp | grep</span> apache komutunu çalıştırmalıyız.<br /><br /><span style="color:#ff0000;">- netstat -antp | grep apache</span><br /><br /><img src="images/4-6.png" alt="images/4-6.png" /><br /><br />Eğer işletim sistemi reboot edildikten sonra da http servisinin aktif kalmasını istersek, <span style="color:#ff0000;">update-rc.d apache2 enable</span> komutunu çalıştırmalıyız.<br /><br /><span style="color:#ff0000;">- update-rc.d apache2 enable</span><br /><br /><img src="images/4-7.png" alt="images/4-7.png" /><br /><br /><span style="color:#0000ff;">1.2.4 Alıştırmalar</span><br /><br />-a. Kali'nin root password'unu değiştiriniz<br />-b. Çeşitli kali servislerini start/stop etmeye çalışınız<br />-c. SSH servisinin sistemin boot anında enable kalmasını sağlayınız.<br /></div></div>
+</body></html>

@@ -1,4 +1,9 @@
-## Lab Setup
+---
+layout: post
+title: "Web APIs Penetration Test Lab Setup"
+date: 2023-09-01 14:24:54
+categories: web api pen test
+---
 
 #### Tool Installation
 

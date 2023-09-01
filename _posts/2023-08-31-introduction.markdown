@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Web APIs Penetration Test Introduction"
+date: 2023-08-31 15:36:27
+categories: web api pen test
+---
+
 #### What is API
 
 - **API** : Application Programming Interface, api allow us to connects applications together. It set the rules which two entities can share the information between one application and another.

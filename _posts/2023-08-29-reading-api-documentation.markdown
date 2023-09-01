@@ -1,0 +1,6 @@
+- Api documentation is a treasure trove for a hackers.
+- We often come accross end points that are directly not used by the client applications.
+- The documentation revealed the following:
+  - PUT request to update the user's details.
+  - DELETE request to delete a user.
+- Interestingly, PUT request is built using XML data in its body - XXE ?

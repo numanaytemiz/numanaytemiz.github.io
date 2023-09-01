@@ -1,0 +1,46 @@
+## Lab Setup
+
+#### Tool Installation
+
+- Vmware
+- Kali Linux
+- [Postman Installation On Debian System](https://linux.how2shout.com/2-ways-to-install-postman-on-debian-11-bullseye-or-10-buster/)
+- [Foxy Proxy Install](https://help.getfoxyproxy.org/index.php/knowledge-base/how-to-use-your-proxy-service-with-firefox-and-foxyproxy-extension/)
+- [Burp Suite and Import CA cert to the cert authority](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)
+
+#### Burp Suite Introduction
+
+- Add target to the scope to reduce silly traffic
+- ctrl + r ---> send request to repeater, we can play with request and manipulate it over and over again....
+- decoder ---> use for decode or encode
+- comparer ---> compare and see differences
+- extensions ---> use extensions to life easier and saving time
+
+#### Postman Introduction
+
+- create new workspace
+- create new collection (group of http requets)
+
+![Image](/img/postman_intro.png)
+
+- we can import collection...
+
+#### Docker Introduction
+
+- [What is crAPI](https://owasp.org/www-project-crapi/)
+- [crAPI github link](https://github.com/OWASP/crAPI)
+
+```
+mkdir labs
+cd labs
+git clone https://github.com/OWASP/crAPI
+
+sudo apt install docker-io
+sudo apt update --fix-missing (if taken errors)
+sudo apt install docker-io (run again if taken)
+sudo apt install docker-compose
+
+cd crAPI/deploy/docker
+sudo docker compose-up
+
+```

@@ -30,7 +30,7 @@ Firstly fuzz v2 field with manuellay, may be there is available v1 field ?
 
 ![Image](/img/resuts.png)
 
-- fuzz books section with the burp intruder , wordlist is small.txt /usr/share/wordlists/dirb/common.txt
+- fuzz books section with the burp intruder , wordlist is common.txt /usr/share/wordlists/dirb/common.txt
 
 ![Image](/img/fuzzbooksv1.png)
 

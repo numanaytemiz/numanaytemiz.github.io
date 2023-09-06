@@ -46,6 +46,6 @@ sudo apt install docker-io (run again if taken)
 sudo apt install docker-compose
 
 cd crAPI/deploy/docker
-sudo docker compose-up
+sudo docker-compose up
 
 ```

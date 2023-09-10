@@ -1,4 +1,4 @@
-#### EWPT Introduction
+#### **EWPT Introduction**
 
 - **We need some informtion before begin web application security testing**
   - **HTTP/HTTPS Protocol Basics**
@@ -8,7 +8,7 @@
   - **Session**
   - **Web Application Proxies**
 
-#### HTTP Protocol Basics
+#### **HTTP Protocol Basics**
 
 - **Hypertext Transfer Protocl (HTTP) is the basic protocol used for web browsing and for most other communication on the web.**
 - **HTTP is client-server protocol used to transfer web pages and web application data. The client is ususalyy a web browser that starts a connection to a server web such as MS IIS or Apache HTTP Server.**
@@ -23,7 +23,7 @@ MESSAGE BODY\r\n
 
 `\r\n: same of hitting enter`
 
-#### HTTP Request
+#### **HTTP Request**
 
 ![Image](/img/http_request.png)
 
@@ -63,7 +63,7 @@ Connection: keep-alive
 
 ---
 
-#### HTTP Response
+#### **HTTP Response**
 
 ![Image](/img/http_response.png)
 
@@ -109,3 +109,61 @@ Content-Length: 7145
   - **This is the actual content of the requested resource. The content can be an HTML page, a document, or even a binary file. The type of the content is , of course, contained in the Content-Type header.**
 
   ***
+
+  - **The best way to understand something is to play around with it a bit. Firefox (as well as other web browser) already have some features that allow us to inspect HTTP Headers on the fly.**
+  - **Once Firefox Starts, open the options menu and select More Tools > Web Developer Tools > Network to inspect http requests and responses**
+
+![Image](/img/reqres.png)
+
+---
+
+#### **HTTPS**
+
+- **HTTP content , as in every clear-text protocol, can be easily intercepted or mangled by an attacker on the way to its destination. Moreover, HTTP does not provide strong authentication between two communicating parties.**
+- **we will see how to protect HTTP by means of an encrytion layer.**
+- **HTTP Sercure (HTTPS) or HTTP over SSL/TLS is a method to run HTTP, which is a clear-text protocol, over SSL/TLS, a cryptographic protocol**
+- **This layering technique provides confidentiality, integrity protection and authentication to the HTTP protocol.**
+
+![Image](/img/attacker.png)
+
+- **When using HTTPS**
+
+  - **An attacker on the path cannot sniff the application layer communication**
+  - **An attacker on the path cannot alter the application layer data**
+  - **The client can tell the real identity of the server and vice-versa**
+
+- **HTTPS does not PROTECT AGAINST WEB APPLICATION FLAWS!. The extra encriytion layer just protects data exchange between the client and the server. It does not protect from an attack against application itself. Attacks such as XSS and SQL Injectons will still work.**
+
+---
+
+#### **ENCODING**
+
+- **Information encoding is a critical component of information technology.Its main function is to represent the low-level mapping of the information being handled.**
+- **The encoding process, often invisible to end users, occurs each time an application needs to be elaborate on any data. Web applications are not excluded from this. Like many other applications, they continuously process thousands of pieces of informaion even for simple requests.**
+- **Understanding encoding schemes used by a web application can give you a big advantage during the detection and exploitation of a vulnerability.**
+
+- **CHARSET**
+
+  - **Internet users, via their browsers, request billions of pages everyday. All of the content of these pages are displayed according to a charset.But What is charset?**
+  - **Charset contains a set of characters, they represent the set of all symbols that the end user can display in their browser window. In technically, a charset consists of pairs of symbols and code points.**
+  - **The sysmbol is what the user reads, as he sees it on the screen. The code point is a numeric index, used to distinguish, the symbol within a charset. A sysbol can be shown only if it exists in the charset.**
+  - **Example of charsets are: ASCII, Unicode, Latin-1 and so on**
+
+  - **ASCII CHARSET**
+
+    - **The ASCII (American Standart Code for Information Interchange) charset contains a small set of symbols. Originally it was 128 only, but now it is usually defined with its extended version for a total of 255. It is old and it was designed to support only US symbols.For example ASCII cannot be used to display Chinese symbols amnong many others.**
+    - **Here is some exaple**
+
+    | CODE | HEX | SYMBOL |
+    | ---- | --- | ------ |
+    | 65   | 41  | A      |
+    | 66   | 42  | B      |
+    | 67   | 43  | C      |
+    | 68   | 44  | D      |
+    | 69   | 45  | E      |
+    | 70   | 46  | F      |
+    | 71   | 47  | G      |
+    | 72   | 48  | H      |
+
+  - **UNICODE**
+    - **UNICODE (Universal Character Set) is the character encoding standart created to enable people around world to use computers in any language. It supports all the world's writing systems.**

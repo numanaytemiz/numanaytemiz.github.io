@@ -60,3 +60,52 @@ Connection: keep-alive
   - **The `Accept-Encoding` is similar to Accept, but it is restricts the content codings that are acceptable in the response. Content codings are primary used to allow a document to be compressed or transformed without losing the identity of its media type and without loss of information.**
 - **CONNECTION**
   - **With HTTP 1.1 we can keep our connection to the remote web server open for an unspecified amount of time using the value `keep-alive` This indicates that all requests to the web server will continue to be sent through this connection without initiating a new connection every time (as in HTTP 1.0)**
+
+---
+
+#### HTTP Response
+
+![Image](/img/http_response.png)
+
+```
+HTTP/2 200 OK
+Date: Sun, 10 Sep 2023 10:12:01 GMT
+Cache-Control: max-age=600
+Content-Type: text/html; charset=utf-8
+Content-Encoding: gzip
+Server: GitHub.com
+Content-Length: 7145
+
+<PAGE CONTENT>
+```
+
+- **let us examine web server response**
+- **In response to the HTTP request, the web server will respond with the requested resource, preceded by a bunch of new heders.**
+- **These new headers from the server will be used by your web browser to interpret the content contained in the Response content.**
+
+- **STATUS LINE**
+  - **The first line of the response message is the Status-Line, consisting of the protocol version (HTTP 1.1) followed by a numeric status code (200) and it is relative textual meaning (OK).**
+  - **The more common status code are:**
+    - **200 OK, the resource is found.**
+    - **301 Moved Permanently, the requested resourse has been assigned a new permanent URI**
+    - **302 Found, the resource is temporarily under another URI**
+    - **403 Forbidden, the client does not have enough privileges and the server refuse to fulfill request.**
+    - **404 Not Found, the server cannot find a resource matching the request**
+    - **500 Internal Server Error, the server does not support the functionality required to fullfill the request.**
+- **DATE**
+  - **Date represents the date and time at which the message was originated.**
+- **Cache Header**
+  - **The Cache Headers allow the Browser and the Server to agree about caching rules. Cached contents save bandwith because they prevent our browser from re-requesting contents that have not changed when the same resource is to be used.**
+- **Content-Type**
+  - **Content-Type lets the client know how to interpret the body of the message.**
+- **Content-Encoding**
+  - **Content-Encoding extends Content-Type. In this case the message body is compressed with gzip.**
+- **SERVER HEADER**
+  - **The Server header displays the web server banner. Apache and IIS are common web servers. Github uses a custom webserver banner: GitHub.com**
+- **Content Length**
+  - **Content-Length indicates the length, in bytes, of the message body.**
+- **Content**
+
+  - **This is the actual content of the requested resource. The content can be an HTML page, a document, or even a binary file. The type of the content is , of course, contained in the Content-Type header.**
+
+  ***

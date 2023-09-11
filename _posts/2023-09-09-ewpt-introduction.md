@@ -167,3 +167,13 @@ Content-Length: 7145
 
   - **UNICODE**
     - **UNICODE (Universal Character Set) is the character encoding standart created to enable people around world to use computers in any language. It supports all the world's writing systems.**
+  - **HTML Encoding**
+    - **Even in HTML , it is important to consider the information integrity of the URL's, and ensure that user agents display data correctly.**
+    - **There are two main issues to addres: inform the user agent on which cracter encoding is going to be used in the document, and the preserve the real meaning of some charcters that have specal significance.**
+    - **According to the HTTP 1.1 RFC , documnets transmitted via HTTP can send a charset parameter in the header to specify the charset encoding of the document sent; this is the HTTP header `Content-Type`**
+    - **HTML4 : `<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">`**
+    - **HTML5: `<meta charset="UTF-8">`**
+  - **URL Encoding**
+  - **Base 64 Encoding**
+
+#### **SAME ORİGİN POLİCY**

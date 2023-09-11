@@ -173,6 +173,8 @@ Content-Length: 7145
     - **According to the HTTP 1.1 RFC , documnets transmitted via HTTP can send a charset parameter in the header to specify the charset encoding of the document sent; this is the HTTP header `Content-Type`**
     - **HTML4 : `<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">`**
     - **HTML5: `<meta charset="UTF-8">`**
+    - **If you intentionally set an incorrect charset, your browser may not display some symbols correctly.**
+    - **Although the primary purpose of HTML entites is not really to be a security feature, its use can limit most client side attacks**
   - **URL Encoding**
   - **Base 64 Encoding**
 

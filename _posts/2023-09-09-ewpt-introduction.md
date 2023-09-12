@@ -176,6 +176,58 @@ Content-Length: 7145
     - **If you intentionally set an incorrect charset, your browser may not display some symbols correctly.**
     - **Although the primary purpose of HTML entites is not really to be a security feature, its use can limit most client side attacks**
   - **URL Encoding**
+    - **As stated in the RFC 3986 , URLs sent over the internet must contains characetrs in the range of the US-ASCII code character set. If unsafe characters are present in the URL, encoding them is required. This encoding is important because it limits the characters to be used in a URL to a subset of specific characters.**
+      - **Unreversed Chars: [a-zA-z][0-9][-._~]**
+      - **Reversed Chars (they have a specific purpose): :/?#[]@!$&"()+,;=%**
+    - **Other characters are encoded by the use of a percent char (%) plus two hexadecimal digits. Reversed chars must be encoded when they have no special role in the url. What follows is a list of common encoded characters**
+
+  | Character | Purpose in URL          | Encoding |
+  | --------- | ----------------------- | -------- |
+  | #         | Seperate Anchros        | %23      |
+  | ?         | Seperate query string   | %3F      |
+  | &         | Seperate query elemetns | %26      |
+  | +         | indicate a space        | %2B      |
+
+  - **When we visit a site , url-encoding is performed automatically by our browser. This happens automatically behind in the scenes in our browser while we surf.**
+  - **Although it appears to be a security feature, URL-encoding is not. It is only a method used to send data accroos the Internet but it can lower the attack surface in some cases**
+
   - **Base 64 Encoding**
+    - **Base64 is a binary-to-text encoding schema used to convert binary files and send them over internet. For example email protocol makes massive use of this encoding to attach files to messages.**
+    - **The html language permits the inclusion of some resources by using this encoding. For example, an image can be included in a page by inserting its binary content that has been converted to base64**
+    - **The alphabet of the base64 encoding scheme is composed of digits [0-9] and latin letters, bothe upper and lowe case [a-zA-Z], for a total of 62 values. To complete character set to 64 there are the plus (+) and slash (/) characters. Different implementations however, may use other values for the latest two characters and the one used for padding(=)**
+    - **The following code will show an image in a web document. The server will send this image without the needed to read it from another source like file system.**
+
+![Image](/img/imagesx.png)
+
+- **In fact , remember that any web designer or developer could easily create their own encoding schema**
+
+---
 
 #### **SAME ORİGİN POLİCY**
+
+- **One of the most important and critical points ow web application security is same origin policy.**
+- **Same origin policy is a browser security feature.**
+- **This policy prevents a script or a document from getting or setting another document that comes from a differnt origin.**
+- **CSS stylesheets , images and scripts are loaded by the browser without consulting the policy.**
+- **Same Origin Policy (SOP) is consulted when cross-site HTTP requests are initiated from within client side scripts (IE:javascript) or when an ajax request is run**
+- **Origin Definitiaon**
+  - **Origin = Protocol + Host + Port**
+
+![Image](/img/origin.png)
+
+- **`http://google.com` and `https://google.com` is different origin because of protocol portion is different.**
+- **Some SOP examples applied to the followind address : http://numanaytemiz.github.io/index.html**
+
+  | URL                                           | SOP              | Reason                       |
+  | --------------------------------------------- | ---------------- | ---------------------------- |
+  | https://numanaytemiz.github.io/index.html     | Different Origin | Different Protocol           |
+  | http://test.numanaytemiz.github.io/index.html | Different Origin | Different host               |
+  | http://numanaytemiz.github.io:8443/index.html | Different Origin | Different Port               |
+  | http://numanaytemiz.github.io/page.html       | Different Origin | Same Protocol, host and port |
+
+- **What does SOP Protect From ?**
+  - **Suppose that we are logged in to our bank site and suppose our friend invites us to visit his new website which is malicious. As a general rule SOP prevents javascript or ajax , running on a given origin, from interacting with a document from a different origin. The primary purpose of SOP is to isolate requests coming from different origin**
+- **What would it happen if SOP did not exist?**
+  - **Our evil friend could build a crafted page, instigate you to visit it, and once visited by you , access some personal information from our bank account. As we can see without SOP you could not suft the Internet**
+
+![Here is Same Origin Policy Explanation in Labs](https://numanaytemiz.github.io/sop-lab.html)

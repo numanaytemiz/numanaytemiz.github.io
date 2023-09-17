@@ -232,3 +232,77 @@ Content-Length: 7145
   - **Our evil friend could build a crafted page, instigate you to visit it, and once visited by you , access some personal information from our bank account. As we can see without SOP you could not suft the Internet**
 
 - [Here is Same Origin Policy Explanation in Labs](https://numanaytemiz.github.io/blog/2023/09/sop-lab.html)
+
+---
+
+- There are several exceptions to SOP restrictions:
+
+  - **window.location**
+  - **document.domain**
+  - **Cross windows messaging**
+  - **Cross origin resource sharing (CORS)**
+
+#### **Cookies**
+
+- HTTP is a stateless protocol. This measns that a website cannot retain the state of your visit between different HTTP requests without mechanisms such as as sessions or cookies. Each visit without a session or a cookie looks like a new user to a server and a browser.
+- To overcome this limitation, in 1994 sessions and cookies were intended. Netscape , a leading company at that time, invented cookies to make HTTP stateful.
+- Cookies are just textual information installed by a website into the "cookie jar" of the web browser. the cookie jar is the storage space where a web browser stores the cookies.
+- They are fragments of text containing variables in the form of name=value.
+- A server can set a cookie via the Set-Cookie HTTP header. A cookie has a predefined format. It contains the followinf fields
+
+  - Domain
+  - Expires
+  - path
+  - Content
+  - http only flag
+  - secure flag
+
+- Cookies Domain Field :
+  - A website only sets a cookie for its domain. (e.g. google.com sets a cookie for the domain google.com or .google.com)
+    - This means that the browser will install the cookie in the cookie jar and will send this cookie for any subsequent requests to :
+      - google.com
+      - www.google.com
+      - maps.google.com
+    - The scope of this cookie will be \*.google.com
+    - Domain A cannot set a cookie for domain B.
+    - The browser will sends A's cookie in accordance with the above domain scope (to A and all of its subdomains,) including the path and the expiration date.
+    - There are two important considerations about the domain fields.
+      - a leading ".", if present, is ignored
+      - If the server does not specify the domain attribute, the browser will automatically set the domain as the server domain and set the cookie host-only flag. This means that the cookie will be sent only to that precise hostname.
+- Expires Field:
+  - Expires gives the cookie a time constraint. The cookie will only be sent to the server if it is not expired.
+- Path Field :
+  - The cookie path field specifies for which requests, within that domain, the browser send cookie.For cookies with path = /downloads/ , all subsequent requests to:
+    - /downloads
+    - /downloads/foo
+    - /downloads/foo/bar , will include this cookie.
+  - The browser will not sent this cookie for requests to /blog or /members
+- Content Field :
+  - A cookie can carry a number of values at once. A server can set multiple values with a single Set-Cookie header by specifying multiple KEY=Value pairs. For example : `Set-Cookie: Username="john"; Authenticated="1"`
+- HttpOnly Flag:
+  - The HttpOnly flag is used to force the browser to send the cookie only through HTTP.
+  - This flag prevents the cookie from being read via javascript. This is a protection mechanism against cookie stealing via XSS.
+- Secure Flag:
+
+  - The Secure flag forces the browser to send the cookie only through HTTPS (SSL).
+  - This prevents the cookie from being sent in the clear.
+
+- Here is some correct cookie installation
+
+- Example 1 :
+
+![Image](/img/correctcookieex1.png)
+
+- This cookie will be sent to each HTTP request matching the following URLs : http://a.site1.com/_, https://a.site1.com/_
+
+- Example 2 :
+
+![Image](/img/correctcookieex2.png)
+
+- The cookie accepted because the domain value .site1.com is a suffix of the domain emitting the cookie, a.site1.com , therefor it will be accepted and sent in each request matching the following URLs:
+  - http://site1.com/*
+  - https://site1.com/*
+  - http://_.site1.com/_
+  - https://_.site1.com/_
+
+#### Session

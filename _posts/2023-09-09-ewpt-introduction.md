@@ -306,3 +306,45 @@ Content-Length: 7145
   - https://_.site1.com/_
 
 #### Session
+
+- Sometimes the web developers prefers to store information on the server side instead of client side.
+- This happens in order to hide the application logic or just to avoid the back and forth data transmission, which is typically behavior of cookies.
+- HTTP sessions are a simple mechanism that allows websites to store variables spesific for a given visit on the server side.
+- Each user session is identified by a either a session id or token , which the server assign to the clients.
+- The main difference between cookies and session variable is that cookies are stored on the client side whereas session variables are on the server.
+- Also session variables expire with the session and sessions usualy expire sooner than cookies do.
+- The session mechanism works through the use of a session token (or session ID).
+- The session ID is assigned to the client by the webserver and the client will present this ID for each subsequent request in order to be recognized.
+- The session ID provided by the client will let the server retrieve both the state of the client and all of its associated variables.
+- Session IDs can be stored within text files, databases or memory on the server.
+
+![Image](/img/sessiondatabase.png)
+
+- Session cookies just contain a single parameter formatted in a key value pair. See the example like below:
+
+  - SESSION=0wvCT0BWDH8w
+  - PHPSESSID=13Kn5Z6Uo4pH
+  - JSESSIONID=W7DPUBgh7kTM
+
+- websites running PHP, typically install session cookies by using "PHPSESSID" parameter name, while JSP websites typically use "JSESSIONID". Each development language has its own default session parameter name and typically allow for developers to customize its functionality.
+
+- If needed , servers install session cookies after a browser performs some type of activity , such as;
+
+  - Opening a specific page
+  - Changing settings in the web application
+  - logging in
+
+- Then the browser uses the cookie in subsequent reqıests.
+- A session could contain many variables, so sending a small cookie keeps the bandwith usage low.
+- In the following example we can see a session cookie in action
+
+![Image](/img/sessionstst.png)
+
+1. The client uses a login form to POST the user's cridentials.
+2. The server sends back a response with a Set-cookie header field. The cookie contains the session ID
+3. The browser will send back the cookie according to the cookie protocol, thus sending the session ID.
+
+- Since the web browser has a cookie in its jar, any subsequent request will carry the (session) cookie with it.
+- As an alternative to session cookies, session ID's can also be sent via GET method append to the requesting URL
+
+- `http://example.site/resource.php?sessid=lkjasgfou234ore`

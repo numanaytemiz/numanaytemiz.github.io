@@ -231,4 +231,4 @@ Content-Length: 7145
 
   - **Our evil friend could build a crafted page, instigate you to visit it, and once visited by you , access some personal information from our bank account. As we can see without SOP you could not suft the Internet**
 
-- [Here is Same Origin Policy Explanation in Labs](https://numanaytemiz.github.io/sop-lab.html)
+- [Here is Same Origin Policy Explanation in Labs](https://numanaytemiz.github.io/blog/2023/09/sop-lab.html)

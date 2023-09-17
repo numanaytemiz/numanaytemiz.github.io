@@ -228,6 +228,7 @@ Content-Length: 7145
 - **What does SOP Protect From ?**
   - **Suppose that we are logged in to our bank site and suppose our friend invites us to visit his new website which is malicious. As a general rule SOP prevents javascript or ajax , running on a given origin, from interacting with a document from a different origin. The primary purpose of SOP is to isolate requests coming from different origin**
 - **What would it happen if SOP did not exist?**
+
   - **Our evil friend could build a crafted page, instigate you to visit it, and once visited by you , access some personal information from our bank account. As we can see without SOP you could not suft the Internet**
 
-![Here is Same Origin Policy Explanation in Labs](https://numanaytemiz.github.io/sop-lab.html)
+- [Here is Same Origin Policy Explanation in Labs](https://numanaytemiz.github.io/sop-lab.html)

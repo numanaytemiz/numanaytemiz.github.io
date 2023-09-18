@@ -347,4 +347,9 @@ Content-Length: 7145
 - Since the web browser has a cookie in its jar, any subsequent request will carry the (session) cookie with it.
 - As an alternative to session cookies, session ID's can also be sent via GET method append to the requesting URL
 
-- `http://example.site/resource.php?sessid=lkjasgfou234ore`
+![Image](/img/sessionswork.png)
+
+#### Web Application Proxies
+
+- Burp Suite
+- Owasp Zap

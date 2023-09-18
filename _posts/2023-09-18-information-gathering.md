@@ -65,6 +65,7 @@ nslookup
   - nslookup
   - whois
   - https://arin.net
+  - https://sitereport.netcraft.com/
 
 `nslookup statcounter.com`  
 `nslookup www.statcounter.com`
@@ -73,3 +74,27 @@ nslookup
 ![Image](/img/nslookups.png)
 ![Image](/img/whoiss.png)
 ![Image](/img/arinnet.png)
+
+Now test on http://testphp.vulnweb.com/ and take not on free mind map
+
+- https://whois.domaintools.com/
+
+#### Enumerate Infrastructure
+
+- The infrastructure behind a web application is waht supports it and allows it to function.
+- This includes the web server that is directly involved in the execution of any web application
+- The two most common web servers used on the internet today are Apache and Microsoft IIS.
+- Discovering what kind of web server is behind your application will give you a hint about what OS the server is running and what known vulnerability may apply.
+- For example , discovering an IIS web server will tip us off that the server is running an OS in the Windows Server OS family.
+- IIS version 6.0 is installed by default on all windows server 2033 boxes, windows server 2008 support IIS7 and windows sevrer 2012 is support IIS 8.0
+- Apache web server may run on the both linux and windows os but generally running on linux os
+- having a clear understanding of the infrastructure will be really useful in next testing steps.
+
+#### Fingerprint the Web Server
+
+- Examine http request and response
+- Use https://sitereport.netcraft.com/
+- netcat
+- httprint
+- whatweb
+- wappalyzer

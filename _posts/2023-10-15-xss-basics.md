@@ -42,7 +42,7 @@ Analyse source page of the web page and see we can inject html codes succesfully
 
 Lets one step further and analyze what if we can supplied javascript code to the querystring's parameter
 
-Attacker input : http://site2.com/reflected_xss.php?name=<script>alert("XSS")</script>
+Attacker input : http://site2.com/reflected_xss.php?name=\<script\>alert("XSS")\</script\>
 
 ![Image](/img/scriptalert.png)
 

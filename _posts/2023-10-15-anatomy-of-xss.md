@@ -6,6 +6,7 @@
 - **Getting complete over a browser**
 - **Initiating an exploitation phase against browser plugins first and then the machine**
 - **Perfom keylogging**
+- **Defacing a web site, altering the original appearance**
 
 ## **Stealing Cokkie With XSS Sample**
 

@@ -6,10 +6,6 @@
 
 #### Solution :
 
-Here is application home page :
-
-![Image](/img/apiintro.png)
-
 Seach something in the application and analyse the result
 
 ![Image](/img/reflects1.png)

@@ -25,3 +25,11 @@
 `ffuf -request req.txt -request-proto http -w /usr/share/seclists/Passwords/xato-net-10-million-passwords-10000.txt -fs 1814`
 
 ![Image](/img/2023-11-05_09-28.png)
+
+---
+
+## JUST ONE NOTE : How Can We Use Clusterbomb in Ffuf
+
+- Edit request for attack points
+
+`ffuf -request req2.txt -request-proto http -mode clusterbomb -w /usr/share/seclists/Usernames/top-usernames-shortlist.txt:FUZZUSER -w pass.txt:FUZZPASS`

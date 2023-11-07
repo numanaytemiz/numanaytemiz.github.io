@@ -4,18 +4,14 @@
 
 - Analyze login process : examine http request and responses among the login process with using burp suite
 
-![Image](/img/2023-11-07_08-06.png)
+![Image](/img/2023-11-07_08-20.png)
 
-![Image](/img/2023-11-07_08-08.png)
+![Image](/img/2023-11-07_08-21.png)
 
-![Image](/img/2023-11-07_08-09.png)
+![Image](/img/2023-11-07_08-22.png)
 
-![Image](/img/2023-11-07_08-09_1.png)
+![Image](/img/2023-11-07_08-23.png)
 
-![Image](/img/2023-11-07_08-11.png)
+![Image](/img/2023-11-07_08-24.png)
 
-![Image](/img/2023-11-07_08-12.png)
-
-![Image](/img/2023-11-07_08-12_1.png)
-
-![Image](/img/2023-11-07_08-14.png)
+![Image](/img/2023-11-07_08-25.png)
